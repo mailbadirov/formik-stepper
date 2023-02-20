@@ -11,7 +11,8 @@ import {
   RadioGroup,
   Switch,
 } from "@mui/material";
-import { IFormProps } from "../../utils/types";
+
+import { IFormProps } from "@/utils/types";
 
 const AdGroup = (props: IFormProps) => {
   const { values, handleBlur, handleChange, touched, errors } = props;

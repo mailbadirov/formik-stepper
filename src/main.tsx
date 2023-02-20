@@ -3,7 +3,7 @@ import { createRoot } from "react-dom/client";
 
 import { createTheme, CssBaseline, ThemeProvider } from "@mui/material";
 
-import App from "./App";
+import App from "@/App";
 
 const theme = createTheme({
   palette: {

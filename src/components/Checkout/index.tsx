@@ -11,18 +11,15 @@ import Button from "@mui/material/Button";
 import Dialog from "@mui/material/Dialog";
 import Alert from "@mui/material/Alert";
 import { LinearProgress } from "@mui/material";
+import AlertTitle from "@mui/material/AlertTitle";
 
 import CampaignSettings from "./CampaignSettings";
 import AdGroup from "./AdGroup";
 import Ad from "./Ad";
 
-import {
-  initialValues,
-  validationSchema,
-} from "../../utils/formik-values";
+import { initialValues, validationSchema } from "@/utils/formik-values";
 
-import { IFormProps } from "../../utils/types";
-import AlertTitle from "@mui/material/AlertTitle";
+import { IFormProps } from "@/utils/types";
 
 const steps = 3;
 
@@ -39,16 +36,16 @@ function getStepContent(step: number, formProps: IFormProps) {
   }
 }
 
-export default function Checkout() {
+const Checkout = () => {
   const [activeStep, setActiveStep] = useState(0);
 
-  const [isOpenAlert, setIsOpenAlert] = useState(false);
+  const [isAlertOpen, setIsAlertOpen] = useState(false);
 
   const [alertMessage, setAlertMessage] = useState("Submitting...");
 
   const handleNext = () => {
     if (activeStep === steps - 1) {
-      setIsOpenAlert(true);
+      setIsAlertOpen(true);
 
       setTimeout(() => {
         setAlertMessage(
@@ -93,7 +90,7 @@ export default function Checkout() {
 
   return (
     <Container component="main" maxWidth="md" sx={{ mb: 4 }}>
-      <Dialog open={isOpenAlert} onClose={closeModal}>
+      <Dialog open={isAlertOpen} onClose={closeModal}>
         <Alert icon={false} severity="success">
           {alertMessage !== "Submitting..." ? (
             <AlertTitle>Success</AlertTitle>
@@ -141,4 +138,6 @@ export default function Checkout() {
       </Paper>
     </Container>
   );
-}
+};
+
+export default Checkout;

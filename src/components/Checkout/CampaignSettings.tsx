@@ -12,7 +12,7 @@ import {
   Slider,
 } from "@mui/material";
 
-import { IFormProps } from "../../utils/types";
+import { IFormProps } from "@/utils/types";
 
 const CampaignSettings = (props: IFormProps) => {
   const { values, handleBlur, handleChange, touched, errors } = props;
